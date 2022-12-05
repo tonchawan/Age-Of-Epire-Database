@@ -3,6 +3,9 @@ import "./App.css";
 import {Route, Routes, Link} from "react-router-dom"
 import { useState } from "react";
 import React from "react";
+import DataContainer from "./Home-Page/Data-Container/Data-Container";
+import CardContainer from "./Home-Page/Data-Container/Card-Container/Card-Container";
+
 
 function App(){
   const [price, setPrice] = useState()
@@ -12,10 +15,10 @@ function App(){
         <nav>
           <Link to= "/ ">
           <img
-            src="https://en.bitcoin.it/w/images/en/2/29/BC_Logo_.png"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/04/Age_of_Empires_HD_logo.png"
             alt=""
           />
-          <h1>Bitcoin prices</h1>
+          <h1>Age Of Emprie Library</h1>
           </Link>
 
         </nav>
@@ -26,8 +29,10 @@ function App(){
           </Routes>
         </main>
 
+        <DataContainer/>
       </div>
-    );
+ 
+ );
 }
 
 export default App;
