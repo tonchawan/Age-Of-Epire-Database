@@ -1,12 +1,11 @@
 import Home from "./Home-Page/Component/Home/Home";
 import "./App.css";
 import {Route, Routes, Link} from "react-router-dom"
-import { useState } from "react";
 import React from "react";
 import DataContainer from "./Home-Page/Data-Container/Data-Container";
+import SearchBar from "./Home-Page/Component/Home/Search-bar/Search-bar";
 
 function App(){
-  const [price, setPrice] = useState()
 
     return (
       <div>
@@ -18,7 +17,7 @@ function App(){
           />
           <h1>Age Of Emprie Library</h1>
           </Link>
-
+          <SearchBar/>
         </nav>
 
         <main>
