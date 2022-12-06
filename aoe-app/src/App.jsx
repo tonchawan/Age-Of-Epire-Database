@@ -4,8 +4,6 @@ import {Route, Routes, Link} from "react-router-dom"
 import { useState } from "react";
 import React from "react";
 import DataContainer from "./Home-Page/Data-Container/Data-Container";
-import CardContainer from "./Home-Page/Data-Container/Card-Container/Card-Container";
-
 
 function App(){
   const [price, setPrice] = useState()

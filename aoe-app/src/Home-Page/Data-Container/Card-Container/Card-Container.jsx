@@ -1,12 +1,39 @@
-const CardContainer = () =>{
-    return(    
+import PropTypes from "prop-types"
+import {Route, Routes, Link} from "react-router-dom"
+import Home from "../../Component/Home/Home"
+
+const CardContainer = (props) =>{
     
-        <div>Card Container
-            <img src= "https://ih1.redbubble.net/image.636495678.3338/poster,504x498,f8f8f8-pad,600x600,f8f8f8.u5.jpg"
-            alt =""/>
-            <button>info</button>
+    const {img, btn} = props
+
+    const showImg = (event)=>{
+
+    }
+
+    return(    
+        <div>
+            {img} ,
+             <button >
+                <Link to= "/ ">
+                    {btn}
+                </Link>
+            </button>
+
+            <main>
+                <Routes>
+                    <Route path = "/" element ={<Home />} />
+                </Routes>
+            </main>
+
         </div>
+
+        
     )
+}
+
+// Check that data is valid
+CardContainer.propTypes ={
+    img : PropTypes.string.isRequired
 }
 
 export default CardContainer
