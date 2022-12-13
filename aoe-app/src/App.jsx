@@ -1,5 +1,5 @@
 import Home from "./Home-Page/Component/Home/Home";
-import {Route, Routes, Link } from "react-router-dom"
+import {Route, Routes, Link, useNavigate} from "react-router-dom"
 // import SearchBar from "./Home-Page/Component/Home/Search-bar/Search-bar";
 import FilterContainner from "./Home-Page/Data-Container/filter"
 import SpellCard from "./Home-Page/Data-Container/Spell"
@@ -8,24 +8,33 @@ import React, {useState, useEffect} from "react";
 import "./App.css";
 import axios from "axios";
 
+
 function App(){
 
 // Get Yukioh API
   const [card , setCard] = useState()
-  const [value, setValue] = useState()
+  const [race , setRace] = useState("")
 
+  const searchRace = ()=>{
+    const api = `https://db.ygoprodeck.com/api/v7/cardinfo.php?race=${race}`
+  axios.get(api)
+  .then(res =>{
+    console.log("get data")
+    setCard(res.data.data)
+    // const navigate = useNavigate()
+    // navigate("/CardInfo")
+
+  })
+  .catch(err =>{
+    console.log(err)
+  }) 
+  }
+    
   useEffect(()=>{
-    const api = `https://db.ygoprodeck.com/api/v7/cardinfo.php?race=Beast-Warrior`
-    axios.get(api)
-    .then(res =>{
-      setCard(res.data.data)
-    })
-    .catch(err =>{
-      console.log(err)
-    })
-  }, [])
+    searchRace()
+  }, [race])
 
-  const typeRace =[ 
+  const cardRace =[ 
   {value :"Aqua	", label:"	Aqua	"},
   {value :"Beast	", label:"	Beast	"},
   {value :"Beast%20Warrior	", label:"	Beast-Warrior	"},
@@ -62,6 +71,8 @@ function App(){
   {value :"34Counter	", label:"	Counter	"}
 ]
 
+const cardType = []
+
     return (
     <div>
       <nav>
@@ -81,9 +92,12 @@ function App(){
         </Routes>
 
         <div className="App">
-          <FilterContainner isSearchable isMulti placeHolder="Race..." options={typeRace} 
-                          onChange={(value) => console.log(value)}
+          <FilterContainner isSearchable isMulti placeHolder="Race..." options={cardRace} 
+                          onChange={(value) => setRace(value[0].label)}
           />
+          {/* <FilterContainner isSearchable isMulti placeHolder="Type..." options={cardType} 
+                          onChange={(value) => console.log(value)} */}
+          {/* /> */}
         </div>
         
       </main>
@@ -94,28 +108,4 @@ function App(){
     
   }
   
-  export default App;
-  
-  /* <div>
-  <nav>
-          <img
-            src="https://e7.pngegg.com/pngimages/396/1000/png-clipart-symbol-yu-gi-oh-logo-number-unity-games-miscellaneous-emblem.png"
-            alt=""
-          />
-          <h1>YuGi Card Library</h1>
-          </Link>
-          <Link to= "/Trap "><h3>Trap</h3></Link>
-          <SearchBar/>
-        </nav>
-
-        <main>
-          <Routes>
-            <Route path = "/Monster" element ={<MonsterCard data = {data} />} />
-            <Route path = "/Spell" element ={<SpellCard data = {data}/>} />
-            <Route path = "/Magic" element ={<Navigate to ="/Spell" />} />
-            <Route path = "/Trap" element ={<TrapCard data = {data} />} />
-          </Routes>
-        </main>
-
-      </div> */
- 
+  export default App
