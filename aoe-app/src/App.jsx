@@ -1,5 +1,5 @@
 import Home from "./Home-Page/Component/Home/Home";
-import {Route, Routes, Link, useNavigate} from "react-router-dom"
+import {Route, Routes, Link} from "react-router-dom"
 // import SearchBar from "./Home-Page/Component/Home/Search-bar/Search-bar";
 import FilterContainner from "./Home-Page/Data-Container/filter"
 import SpellCard from "./Home-Page/Data-Container/Spell"
@@ -32,7 +32,7 @@ function App(){
     
   useEffect(()=>{
     searchRace()
-  }, [race])
+  }, [race, searchRace])
 
   const cardRace =[ 
   {value :"Aqua	", label:"	Aqua	"},
@@ -71,7 +71,7 @@ function App(){
   {value :"34Counter	", label:"	Counter	"}
 ]
 
-const cardType = []
+// const cardType = []
 
     return (
     <div>

@@ -2,7 +2,6 @@ import CardContainer from "./Card-Container/Card-Container";
 
 
 const SpellCard = (props) => {
-    let list = props
     
     return(
     
