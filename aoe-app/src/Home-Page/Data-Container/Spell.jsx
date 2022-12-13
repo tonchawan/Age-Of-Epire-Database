@@ -11,11 +11,14 @@ const SpellCard = (props) => {
           {props.data.map((item)=>{
             return ( 
             <CardContainer 
-                    cardId={item.id}
-                    cardName={item.name} 
-                    cardType={item.type}
-                    cardImg={item.card_images[0].image_url}
-                    key={item.id}/>)
+            cardImg={item.card_images[0].image_url}
+            cardId={item.id}
+            cardName={item.name} 
+            cardType={item.type}
+            cardAtk={`ATK :${item.atk}`}
+            cardDef={`DEF :${item.def}`}
+            cardDesc ={item.desc}
+            key={item.id}/>)
           })}
         </ul>
       </div>)

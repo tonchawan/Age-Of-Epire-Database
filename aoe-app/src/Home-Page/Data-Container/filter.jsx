@@ -17,13 +17,7 @@ const CloseIcon = () => {
   );
 };
 
-const FilterContainner = ({
-  placeHolder,
-  options,
-  isMulti,
-  isSearchable,
-  onChange
-}) => {
+const FilterContainner = ({placeHolder,options,isMulti,isSearchable,onChange}) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedValue, setSelectedValue] = useState(isMulti ? [] : null);
   const [searchValue, setSearchValue] = useState("");
@@ -130,7 +124,7 @@ const FilterContainner = ({
   }
 
   return (
-    <div className="dropdown-container">
+    <form className="dropdown-container">
       <div ref={inputRef} onClick={handleInputClick} className="dropdown-input">
         <div className="dropdown-selected-value">{getDisplay()}</div>
         <div className="dropdown-tools">
@@ -157,7 +151,7 @@ const FilterContainner = ({
           ))}
         </div>
       )}
-    </div>
+    </form>
   )
 }
 

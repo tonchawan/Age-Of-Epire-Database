@@ -12,9 +12,10 @@ function App(){
 
 // Get Yukioh API
   const [card , setCard] = useState()
+  const [value, setValue] = useState()
 
   useEffect(()=>{
-    const api = "https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Normal%20Monster"
+    const api = `https://db.ygoprodeck.com/api/v7/cardinfo.php?race=Beast-Warrior`
     axios.get(api)
     .then(res =>{
       setCard(res.data.data)
@@ -24,10 +25,10 @@ function App(){
     })
   }, [])
 
-  const typeTag =[ 
-  {value :"01Aqua	", label:"	Aqua	"},
-  {value :"02Beast	", label:"	Beast	"},
-  {value :"03Beast-Warrior	", label:"	Beast-Warrior	"},
+  const typeRace =[ 
+  {value :"Aqua	", label:"	Aqua	"},
+  {value :"Beast	", label:"	Beast	"},
+  {value :"Beast%20Warrior	", label:"	Beast-Warrior	"},
   {value :"04Creator-God	", label:"	Creator-God	"},
   {value :"05Cyberse	", label:"	Cyberse	"},
   {value :"06Dinosaur	", label:"	Dinosaur	"},
@@ -80,7 +81,7 @@ function App(){
         </Routes>
 
         <div className="App">
-          <FilterContainner isSearchable isMulti placeHolder="Type..." options={typeTag} 
+          <FilterContainner isSearchable isMulti placeHolder="Race..." options={typeRace} 
                           onChange={(value) => console.log(value)}
           />
         </div>
