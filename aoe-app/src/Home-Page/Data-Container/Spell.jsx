@@ -2,11 +2,23 @@ import CardContainer from "./Card-Container/Card-Container";
 
 
 const SpellCard = (props) => {
-    let list = props.data.map(item => {
-         return (<CardContainer {...item} key ={item.id} />
-      )
-    });
-    return <div>{list}</div>;
-}
+    let list = props
+    
+    return(
+    
+      <div>
+        <ul>
+          {props.data.map((item)=>{
+            return ( 
+            <CardContainer 
+                    cardId={item.id}
+                    cardName={item.name} 
+                    cardType={item.type}
+                    cardImg={item.card_images[0].image_url}
+                    key={item.id}/>)
+          })}
+        </ul>
+      </div>)
+  }
 
 export default SpellCard;

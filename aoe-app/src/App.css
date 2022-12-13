@@ -13,19 +13,20 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 nav img {
-  max-height: 50px;
+  max-height: 30px;
   padding: 5px;
   /* margin: 5px 20px 5px 0; */
   display: inline-block;
   vertical-align: middle;
 }
 
-nav h1 {
+nav h1 , h3 {
   margin: 0;
+  font-size:  20px; ;
   display: inline-block;
   vertical-align: middle;
 }
@@ -33,7 +34,7 @@ nav h1 {
 nav a {
   color: white;
   display: inline-block;
-  padding: 20px;
+  padding: 10px;
   font-size: 1.2em;
   text-decoration: none;
 }

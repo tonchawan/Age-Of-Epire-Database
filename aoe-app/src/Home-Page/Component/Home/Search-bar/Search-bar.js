@@ -1,5 +1,4 @@
 // Create search bar
-
 import { useState } from "react";
 
 const SearchBar = ()=>{
@@ -7,7 +6,7 @@ const SearchBar = ()=>{
     const [searchValue, setSearch] =useState("")
 
     const inputSearch = (event) => {
-        setSearch(event.target.value)
+        setSearch(event.target.val0ue)
       }
 
     const saveValue =(event)=>{
